@@ -12,7 +12,7 @@ const determinePrice = (item) => {
 }
 
 const isUsed = (item) => {
-    let link = item.subFamilia==="USADO"? `<a class="item_linkFotos" href=${item.observaciones} target="_blank"> Ver Fotos</a>` : ""
+    let link = item.subFamilia==="USADO"? <a className="item_linkFotos" href={item.observaciones}/*  target="_blank" */> Ver Fotos</a> : ""
     return link
 }
 
@@ -20,8 +20,8 @@ const isUsed = (item) => {
   return (
     <>
     {
-      props.map((item)=>{
-       return <Item props={{item, determinePrice, isUsed}}/>
+      props.map((item, index)=>{
+       return <Item props={{item, determinePrice, isUsed,}} key={index}/>
       })
     }
     </>
