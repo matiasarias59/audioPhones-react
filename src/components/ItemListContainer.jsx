@@ -6,6 +6,7 @@ export default function ItemListContainer() {
 
   const [catalogue, setCatalogue] = useState([]);
   const {idCategory} = useParams("idCategory")
+  const {idSubCat} = useParams("idSubCat")
 
 
   const generateCatalogue = (rawData) => {
@@ -32,21 +33,28 @@ export default function ItemListContainer() {
     return arrFilter
   }
 
-    useEffect(() => {
-        const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/data!A1:R?key=AIzaSyCNjdPDGXC6zms7YbYknyLuSIbqbJKXgKA";
-        fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          //console.log(data.values)
-         // setItems([...data.values])
+  useEffect(() => {
+    const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/data!A1:R?key=AIzaSyCNjdPDGXC6zms7YbYknyLuSIbqbJKXgKA";
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
 
-         if(idCategory){
-          setCatalogue(categoryFilter(generateCatalogue(data.values),"familia",idCategory))
-         }else{
-            setCatalogue(generateCatalogue(data.values));
-          }
-        });
-      }, [idCategory])
+        if (idCategory) {
+          setCatalogue(categoryFilter(generateCatalogue(data.values), "familia", idCategory))
+        } else {
+          setCatalogue(generateCatalogue(data.values));
+        }
+
+        if (idSubCat) {
+          const subCatalogue = categoryFilter(generateCatalogue(data.values), "familia", idCategory)
+          setCatalogue(categoryFilter(subCatalogue, "subFamilia", idSubCat))
+        } else {
+          setCatalogue(generateCatalogue(data.values));
+        }
+
+      });
+    console.log(idSubCat)
+  }, [idCategory, idSubCat])
 
       console.log(catalogue)
 
