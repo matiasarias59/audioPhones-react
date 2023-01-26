@@ -1,0 +1,7 @@
+.itemListContainer{
+    margin: 2rem auto 3rem auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: blueviolet;
+}

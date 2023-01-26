@@ -1,68 +1,90 @@
-import React, {useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
+import FilterListContainer from './FilterListContainer';
 import ItemList from './ItemList'
+import './ItemListContainer.css'
 
 export default function ItemListContainer() {
 
-  const [catalogue, setCatalogue] = useState([]);
-  const {idCategory} = useParams("idCategory")
-  const {idSubCat} = useParams("idSubCat")
+  const { catalogue, categoryFilter } = useContext(AppContext);
+  const [newCatalogue, setNewCatalogue] = useState([]);
+  const [filterCatalogue, setFilterCatalogue] = useState([]);
 
+  const { idCategory } = useParams("idCategory")
+  const { idBrand } = useParams("idBrand")
 
-  const generateCatalogue = (rawData) => {
-    
-    const catalogueTemplate = [];
-        for (let i = 1; i < rawData.length; i++) {
-          const itemTemplate = {}; 
-          const keys = rawData[0];
-          for (const key of keys) {
-            itemTemplate[key] = rawData[i][keys.indexOf(key)];
-          }
-          if (itemTemplate.publicar === 'TRUE' && itemTemplate.cantidad > 0) {
-            catalogueTemplate.push(itemTemplate);
-          }
-        }  
-    return catalogueTemplate    
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  }
+  const searchUrl = useLocation().search
 
-  const categoryFilter = (arr, keyword, filter) => {
-    const arrFilter = arr.filter((el)=>{
-      return el[keyword] === filter
-    }) 
-    return arrFilter
+  const generateFilterCatalogue = (arrCatalogue, filter) => {
+
+    /* const { nameFilter, arrFilter } = { filter };
+    const filterCatalogue = [];
+
+    arrFilter.forEach((f) => {
+      const arr = arrCatalogue.filter(item => item[nameFilter] === f);
+      filterCatalogue.push(...arr);
+    })
+
+    return filterCatalogue */
+    const l = Object.keys(filter).length
+    //console.log(l)
+    const filterCatalogue = arrCatalogue.filter((item)=>{
+      //console.log(item)
+      let match = 0
+      //console.log(Object.entries(filter))
+      for (const [k,v] of Object.entries(filter)) {
+       // console.log(k)
+       // console.log(v)
+        v.forEach(element => {
+         // console.log(item[k].toLowerCase())
+          if (item[k].toLowerCase() === element) {
+            match += 1
+          } 
+        });
+        
+        
+      }
+      //onsole.log(match)
+      return (l === match);
+      
+
+    })
+    console.log(filterCatalogue)
+    return filterCatalogue;
+
   }
 
   useEffect(() => {
-    const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/data!A1:R?key=AIzaSyCNjdPDGXC6zms7YbYknyLuSIbqbJKXgKA";
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
 
-        if (idCategory) {
-          setCatalogue(categoryFilter(generateCatalogue(data.values), "familia", idCategory))
-        } else {
-          setCatalogue(generateCatalogue(data.values));
-        }
+    idCategory && setNewCatalogue(categoryFilter(catalogue, "familia", idCategory));
+    idBrand && setNewCatalogue(categoryFilter(catalogue, "marca", idBrand));
 
-        if (idSubCat) {
-          const subCatalogue = categoryFilter(generateCatalogue(data.values), "familia", idCategory)
-          setCatalogue(categoryFilter(subCatalogue, "subFamilia", idSubCat))
-        } else {
-          setCatalogue(generateCatalogue(data.values));
-        }
+  }, [catalogue, idBrand, idCategory])
 
-      });
-    console.log(idSubCat)
-  }, [idCategory, idSubCat])
+  useEffect(() => {
+    const filters = searchParams.entries();
 
-      console.log(catalogue)
+    const searchFilters = {}
+
+    for (const [k, v] of filters) {
+
+      searchFilters[k] ? searchFilters[k] = [...(searchFilters[k]), v] : searchFilters[k] = [v];
+
+    }
+
+    searchUrl && console.log(searchFilters);
+    setFilterCatalogue(generateFilterCatalogue(newCatalogue, searchFilters));
+    
+  }, [searchUrl])
 
   return (
-    <>
-    <div>ItemListContainer</div>
-    <ItemList props={catalogue} />
-    </>
+    <div className='itemListContainer'>
+      <FilterListContainer props={{ newCatalogue }} />
+      <ItemList props={searchUrl ? filterCatalogue : newCatalogue} />
+    </div>
 
   )
 }

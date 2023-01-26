@@ -1,0 +1,5 @@
+.filterListContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+}

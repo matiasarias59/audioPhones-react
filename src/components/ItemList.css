@@ -1,0 +1,10 @@
+.itemList{
+    margin: auto;
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 2rem;
+
+    /* height: 100%; */
+}
+

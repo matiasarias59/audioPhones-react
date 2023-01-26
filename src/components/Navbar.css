@@ -1,0 +1,57 @@
+ul, li{
+    text-decoration: none;
+    list-style: none;
+}
+.navbar{
+    background-color: rgb(255, 148, 148);
+    max-width: 1200px;
+    height: 5rem;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+    overflow:visible;
+
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.menu li{
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.menu__name{
+
+    color: white;
+    font-size: 2rem;
+}
+
+.menu__list{
+    display: none;
+}
+
+.menu__list--active{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blue;
+    background-color: aqua;
+    max-height: 50vh;
+    overflow-y: scroll;
+    
+   
+    
+}
+
+.menu__list--active::-webkit-scrollbar{
+    width: 0.3rem;
+}
+.menu__list--active::-webkit-scrollbar-thumb{
+    background-color: rgb(255, 0, 221);
+
+}

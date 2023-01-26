@@ -13,9 +13,13 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/brand/:idBrand' element={<ItemListContainer />} />
-          <Route path='/category/:idCategory' element={<ItemListContainer />} />
-          <Route path='/category/:idCategory/:idSubCat' element={<ItemListContainer />} />
+          <Route path='/marca/:idBrand' element={<ItemListContainer />} />
+          {/* <Route path='/marca/:idBrand/:idCategory' element={<ItemListContainer />} />
+          <Route path='/marca/:idBrand/:idCategory/:idSubCat' element={<ItemListContainer />} /> */}
+          <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
+          {/* <Route path='/categoria/:idCategory/:idSubCat' element={<ItemListContainer />} />
+          <Route path='/categoria/:idCategory/:idSubCat/:idBrand' element={<ItemListContainer />} /> */}
+
           {/*  <Route path='/:idBrand/:idCategory' element={<ItemListContainer/>}/>
         <Route path='/:idBrand/:idCategory/:idSubCategory' element={<ItemListContainer/>}/>
         <Route path='/:idCategory/:idSubCategory' element={<ItemListContainer/>}/> */}
