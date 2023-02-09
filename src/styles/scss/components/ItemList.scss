@@ -1,0 +1,21 @@
+.itemList{
+    margin: 0;
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+   // border: 2px green solid;
+    max-height: 90vh;
+    overflow-y: scroll;
+
+
+    &::-webkit-scrollbar{
+        width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color:$mainColor;
+        border-radius: 1rem;
+        
+    }
+}
+

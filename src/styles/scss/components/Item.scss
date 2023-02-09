@@ -1,0 +1,155 @@
+.item {
+    &_card {
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid rgb(207, 207, 207);
+        box-shadow: 0.1rem 0.1rem 0.6rem rgba(155, 155, 155, 0.5);
+        padding: 1rem;
+
+        &:hover {
+            background-color: rgb(240, 240, 240);
+
+        }
+
+        
+    }
+
+    &_img {
+
+        width: 200px;
+        margin: auto;
+    }
+
+    &_tittle {
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &_desc{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: 1rem 0 1rem 0;
+        overflow: hidden;
+        text-overflow: "-";
+        
+    }
+
+    &_cod{
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        text-align: right;
+    }
+
+    &_color{
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        text-align: right;
+    }
+
+    &_linkFotos{
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        color: $mainColor;
+        padding: 0.2rem;
+        margin-bottom: 1rem;
+
+        &:hover{
+            background-color: #aaaaaa4d;
+        }
+    }
+
+    &_price{
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+        background-color: $mainColor;
+        color: white;
+        padding: 0.2rem;
+        margin-bottom: 1rem;
+        
+    }
+
+    &_stock{
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-align: right;
+    } 
+    
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .itemList{
+        max-width: 80vw;
+        grid-template-columns: auto auto ; 
+    }
+
+    .item_tittle{
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-align: center
+    }
+
+    .item_img{
+        
+        margin: 1rem auto auto auto;
+    }
+
+    .item_desc{
+        font-size: 1.8rem;
+        
+    }
+
+    .item_cod{
+        font-size: 1.6rem;
+      
+    }
+    .item_color{
+        font-size: 1.6rem;
+    }
+       
+  }
+
+@media screen and (max-width: 525px) {
+
+    .itemList{
+        max-width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .item_tittle{
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-align: center
+    }
+
+    .item_img{
+        width: 70vw;
+        margin: 1rem auto auto auto;
+    }
+
+    .item_desc{
+        font-size: 1.8rem;
+        
+    }
+
+    .item_cod{
+        font-size: 1.6rem;
+      
+    }
+    .item_color{
+        font-size: 1.6rem;
+    }
+       
+  }
+
+ 

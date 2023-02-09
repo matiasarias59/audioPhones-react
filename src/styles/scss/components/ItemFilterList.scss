@@ -1,0 +1,30 @@
+.itemFilterList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0.2rem;
+    color: rgb(87, 87, 87);
+
+    &:hover{
+        color: $mainColor;
+        background-color: rgba(224, 224, 224, 0.648);
+        border-radius: 0.5rem;
+        width: fit-content;
+    }
+
+    .closeBtn{
+        margin-left: 0.5rem;
+        color: white;
+        font-weight: 800;
+        font-size: 0.75rem;
+        background-color: $mainColor;
+        border-radius: 100%;
+        //height: max-content;
+        padding: 0.2rem;
+        text-align: center;       
+    }
+    
+}

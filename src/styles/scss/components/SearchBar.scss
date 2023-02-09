@@ -1,0 +1,36 @@
+.form__search {
+    display: flex;
+    flex-flow: row nowrap;
+
+    &__input {
+        background-color: aliceblue;
+        width: 15vw;
+        font-size: 1.8rem;
+        font-weight: 200;
+        padding: 0.2rem 1rem;
+        border-radius: 0.5rem 0 0 0.5rem;  
+
+
+        &::placeholder {
+            color: $mainColor;
+
+        }
+
+    }
+
+    &_btn {
+        background-color: aliceblue;
+        font-size: 1.8rem;
+        font-weight: 400;
+        padding: 0.2rem 1rem;
+        border-radius: 0 0.5rem 0.5rem 0;  
+        color: $mainColor;
+
+        &:hover{
+            background-color: $mainColor;
+            color: aliceblue;
+            border:aliceblue 1px solid ;
+        }
+    }
+
+}

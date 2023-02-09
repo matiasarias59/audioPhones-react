@@ -2,17 +2,19 @@ import React, { useContext, useEffect, useState } from 'react'
 import Logo from './Logo'
 import { AppContext } from '../context/AppContext';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
+//import './Navbar.css'
 import SearchBar from './SearchBar';
 
 export default function Navbar() {
 
-  const { catalogue, getCategoryList, getBrandList, categoryFilter } = useContext(AppContext);
+  const { catalogue, getCategoryList, getBrandList } = useContext(AppContext);
 
   const [categoryList, setCategoryList] = useState([]);
   const [brandList, setBrandList] = useState([]);
+  const [menuList, setMenuList] = useState(false)
 
   useEffect(() => {
+    setMenuList(false);
     setCategoryList(getCategoryList(catalogue))
     setBrandList(getBrandList(catalogue))
 
@@ -20,16 +22,17 @@ export default function Navbar() {
 
   const HandleMenuList = e => {
     console.log(e)
-    e.target.nextSibling.classList.toggle("menu__list--active")
+    e.target.nextSibling.classList.toggle("active")
   }
 
   return (
 
     <nav className='navbar'>
+      <Logo/>
       <ul className='menu'>
         <li>
           <div className='menu__name' onClick={(e)=>HandleMenuList(e)}>
-            CATEGORIAS
+            CATEGORIAS ▼
           </div>
           <ul className='menu__list'>
             {categoryList.map((el, i) => {
@@ -42,7 +45,7 @@ export default function Navbar() {
         </li>
         <li>
           <div className='menu__name' onClick={(e)=>HandleMenuList(e)}>
-            MARCAS
+            MARCAS ▼
           </div>
           <ul className='menu__list'>
             {brandList.map((el, i) => {

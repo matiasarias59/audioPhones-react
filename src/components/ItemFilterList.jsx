@@ -28,9 +28,7 @@ export default function ItemFilterList({props}) {
   const handlerFilterDel = () => {
     
     const items = searchParams.getAll(filterName);
-    //console.log(item)
     const newItems = items.filter( i =>i !== lowItem);
-    console.log(newItems)
     searchParams.delete(filterName);
     newItems.forEach((i)=>{
       searchParams.append(filterName, i);
@@ -47,9 +45,9 @@ export default function ItemFilterList({props}) {
 
 
   return (
-    <li>
-        <p onClick={handlerFilterAdd}>{item}</p>
-        {filterIsActive && <div onClick={handlerFilterDel}>X</div>}
+    <li className='itemFilterList'>
+        <div onClick={handlerFilterAdd}>{item}</div>
+        {filterIsActive && <div className='closeBtn' onClick={handlerFilterDel}>X</div>}
         
         </li>
   )

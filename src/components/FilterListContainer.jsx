@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import FilterList from './FilterList'
 import Loading from './Loading'
-import './FilterListContainer.css'
+//import './FilterListContainer.css'
 import { AppContext } from '../context/AppContext';
 import { useParams } from 'react-router-dom';
 
@@ -37,12 +37,21 @@ export default function FilterListContainer({ props }) {
   return (
 
     <div className='filterListContainer'>
-      {!idCategory && <><h3>Categorias:</h3>
-        <FilterList props={{ list: categoryList, filterName: "familia" }} /></>}
-      {!idBrand && <><h3>Marcas:</h3>
-        <FilterList props={{ list: brandList, filterName: "marca" }} /></>}
-      <h3>SubCategorias:</h3>
-      <FilterList props={{ list: subCategoryList, filterName: "subFamilia" }} />
+      <h3 className='filterListContainer__title'>Refina tu busqueda:</h3>
+      <div>
+        {!idCategory && <><h3 className='filterListContainer__titleList'>Categorias:</h3>
+          <FilterList props={{ list: categoryList, filterName: "familia" }} /></>
+        }
+      </div>
+      <div>
+        {!idBrand && <><h3 className='filterListContainer__titleList'>Marcas:</h3>
+          <FilterList props={{ list: brandList, filterName: "marca" }} /></>
+        }
+      </div>
+      <div>
+        <h3 className='filterListContainer__titleList'>SubCategorias:</h3>
+        <FilterList props={{ list: subCategoryList, filterName: "subFamilia" }} />
+      </div>
     </div>
 
   )

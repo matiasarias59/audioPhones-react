@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
+//import './App.css';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import ItemListContainer from './components/ItemListContainer';
@@ -14,15 +14,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/marca/:idBrand' element={<ItemListContainer />} />
-          {/* <Route path='/marca/:idBrand/:idCategory' element={<ItemListContainer />} />
-          <Route path='/marca/:idBrand/:idCategory/:idSubCat' element={<ItemListContainer />} /> */}
-          <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
-          {/* <Route path='/categoria/:idCategory/:idSubCat' element={<ItemListContainer />} />
-          <Route path='/categoria/:idCategory/:idSubCat/:idBrand' element={<ItemListContainer />} /> */}
 
-          {/*  <Route path='/:idBrand/:idCategory' element={<ItemListContainer/>}/>
-        <Route path='/:idBrand/:idCategory/:idSubCategory' element={<ItemListContainer/>}/>
-        <Route path='/:idCategory/:idSubCategory' element={<ItemListContainer/>}/> */}
+          <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
+
           <Route path='/search' element={<ItemListContainer />} />
 
 
