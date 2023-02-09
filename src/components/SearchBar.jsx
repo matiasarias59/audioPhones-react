@@ -1,11 +1,10 @@
 import React from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 
 export default function SearchBar() {
   
-  const [search, setSearch] = useSearchParams();
   const navigate = useNavigate(); 
   
   const handleSearchBar = (e) => {
@@ -13,7 +12,7 @@ export default function SearchBar() {
     //console.log(e.target[0].value)
     const searchValue = e.target[0].value 
     
-    navigate(`/search/?q=${searchValue}`)
+    navigate(`/search/?descripcion=${searchValue}`)
 
   }
 

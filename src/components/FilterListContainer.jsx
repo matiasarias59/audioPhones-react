@@ -6,9 +6,9 @@ import { AppContext } from '../context/AppContext';
 import { useParams } from 'react-router-dom';
 
 
-export default function FilterListContainer({ props }) {
+export default function FilterListContainer({props}) {
   const { getCategoryList, getSubCategoryList, getBrandList } = useContext(AppContext);
-  const { newCatalogue } = props
+  //const { newCatalogue } = props
   const [categoryList, setCategoryList] = useState([]);
   const [brandList, setBrandList] = useState([]);
   const [subCategoryList, setSubCategoryList] = useState([]);
@@ -22,10 +22,10 @@ export default function FilterListContainer({ props }) {
 
   useEffect(() => {
 
-    setCategoryList(getCategoryList(newCatalogue))
-    setBrandList(getBrandList(newCatalogue))
-    setSubCategoryList(getSubCategoryList(newCatalogue))
-  }, [newCatalogue])
+    setCategoryList(getCategoryList(props))
+    setBrandList(getBrandList(props))
+    setSubCategoryList(getSubCategoryList(props))
+  }, [props])
 
 
   if (!categoryList) {

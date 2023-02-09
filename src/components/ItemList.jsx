@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './Item';
+import EmpyElement from './EmpyElement';
 //import './ItemList.css'
 
 export default function ItemList({props}) {
@@ -20,10 +21,9 @@ const isUsed = (item) => {
 
   return (
     <div className='itemList'>
-    {
-      props.map((item, index)=>{
+    {props.length ?  props.map((item, index)=>{
        return <Item props={{item, determinePrice, isUsed,}} key={index}/>
-      })
+      }) : <EmpyElement/>
     }
     </div>
   )
