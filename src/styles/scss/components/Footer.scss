@@ -1,0 +1,13 @@
+.footer_container{
+    background-color: $mainColor;
+    max-width: 1400px;
+    height: 5rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        color: aliceblue;
+        font-size: 2rem;
+    }
+}

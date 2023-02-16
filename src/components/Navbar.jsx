@@ -20,9 +20,20 @@ export default function Navbar() {
 
   }, [catalogue])
 
-  const HandleMenuList = e => {
+  const HandleMenuName = e => {
+    e.stopPropagation();
     console.log(e)
     e.target.nextSibling.classList.toggle("active")
+  }
+
+  const HandleMenuList = e => {
+    //e.stopPropagation();
+    console.log(e)
+    e.target.classList.remove("active")
+  }
+
+  const onFocusTest = e => {
+    console.log(e);
   }
 
   return (
@@ -31,10 +42,10 @@ export default function Navbar() {
       <Logo/>
       <ul className='menu'>
         <li>
-          <div className='menu__name' onClick={(e)=>HandleMenuList(e)}>
+          <div className='menu__name' onClick={(e)=>HandleMenuName(e)} >
             CATEGORIAS ▼
           </div>
-          <ul className='menu__list'>
+          <ul className='menu__list' onMouseLeave={(e)=>HandleMenuList(e)} >
             {categoryList.map((el, i) => {
               return (
                 <li key={i}>
@@ -44,10 +55,10 @@ export default function Navbar() {
           </ul>
         </li>
         <li>
-          <div className='menu__name' onClick={(e)=>HandleMenuList(e)}>
+          <div className='menu__name' onClick={(e)=>HandleMenuName(e)}>
             MARCAS ▼
           </div>
-          <ul className='menu__list'>
+          <ul className='menu__list' onMouseLeave={(e)=>HandleMenuList(e)}>
             {brandList.map((el, i) => {
               return (
                 <li className='menu__list__item' key={i}>
