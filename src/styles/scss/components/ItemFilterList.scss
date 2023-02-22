@@ -7,7 +7,7 @@
     margin-bottom: 0.2rem;
     padding: 0.2rem;
     color: rgb(87, 87, 87);
-
+   
     &:hover{
         color: $mainColor;
         background-color: rgba(224, 224, 224, 0.648);
@@ -27,4 +27,14 @@
         text-align: center;       
     }
     
+    @include media-down(md) {
+    font-size: 1.5rem;
+        
+
+    }
+
+    @include media-down(sm) {
+        font-size: 1.5rem;
+
+    }
 }

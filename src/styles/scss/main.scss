@@ -1,6 +1,9 @@
 
 
 @import "abstracts/variables";
+@import "abstracts/breakpoints";
+@import "abstracts/mixins";
+
 @import "base/normalize";
 
 
@@ -13,3 +16,4 @@
 @import "components/Logo.scss";
 @import "components/SearchBar.scss";
 @import "components/Footer.scss";
+@import "components/EmpyElement.scss";

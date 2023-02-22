@@ -8,52 +8,106 @@
         box-shadow: 0.1rem 0.1rem 0.6rem rgba(155, 155, 155, 0.5);
         padding: 1rem;
 
+        //max-width: 200px;
+        // margin-bottom: 2rem;
         &:hover {
             background-color: rgb(240, 240, 240);
+        }
+
+        @include media-down(sm) {
+            grid-template-columns: auto 1fr 1fr;
+            grid-template-rows: auto auto auto auto auto;
+            height: fit-content;
+
+
 
         }
 
-        
     }
 
     &_img {
 
         width: 200px;
         margin: auto;
+
+        @include media-down(md) {
+            width: 150px;
+
+        }
+        @include media-down(sm) {
+            width: 100px;
+            grid-column: 1 / 2;
+            grid-row: 1 / 6;
+            margin: 0.5rem;
+        }
+
     }
 
     &_tittle {
         font-size: 2rem;
         font-weight: 400;
         text-align: center;
+
+        @include media-down(sm) {
+            grid-column: 2 / 4;
+            grid-row: 1 / 2;
+            font-size: 2rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
     }
 
-    &_desc{
+    &_desc {
         text-align: center;
         font-size: 1.5rem;
         font-weight: 300;
         margin: 1rem 0 1rem 0;
         overflow: hidden;
         text-overflow: "-";
-        
+
+        @include media-down(sm) {
+
+            grid-column: 2 / 4;
+            grid-row: 2 / 3;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
     }
 
-    &_cod{
+    &_cod {
         font-size: 1.2rem;
         font-style: italic;
         font-weight: 400;
         margin-bottom: 1rem;
         text-align: right;
+
+        @include media-down(sm) {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+            font-size: 1.2rem;
+            text-align: right;
+        }
+
     }
 
-    &_color{
+    &_color {
         font-size: 1.2rem;
         font-weight: 400;
         margin-bottom: 1rem;
         text-align: right;
+
+        @include media-down(sm) {
+            grid-column: 2 / 3;
+            grid-row: 3/ 4;
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
     }
 
-    &_linkFotos{
+    &_linkFotos {
         font-size: 2rem;
         font-weight: 400;
         text-align: center;
@@ -61,12 +115,18 @@
         padding: 0.2rem;
         margin-bottom: 1rem;
 
-        &:hover{
+        &:hover {
             background-color: #aaaaaa4d;
         }
+
+        @include media-down(sm) {
+            grid-column: 1 / 4;
+            grid-row: 5 / 6;
+        }
+
     }
 
-    &_price{
+    &_price {
         font-size: 2rem;
         font-weight: 800;
         text-align: center;
@@ -74,82 +134,27 @@
         color: white;
         padding: 0.2rem;
         margin-bottom: 1rem;
-        
+
+        @include media-down(sm) {
+            grid-column: 2 / 3;
+            grid-row: 4 / 5;
+            font-size: 2rem;
+        }
+
+
     }
 
-    &_stock{
+    &_stock {
         font-size: 1.5rem;
         font-weight: 300;
         text-align: right;
-    } 
-    
+
+        @include media-down(sm) {
+            grid-column: 3 / 4;
+            grid-row: 4 / 5;
+            font-size: 1.6rem;
+        }
+
+    }
+
 }
-
-
-@media screen and (max-width: 1024px) {
-
-    .itemList{
-        max-width: 80vw;
-        grid-template-columns: auto auto ; 
-    }
-
-    .item_tittle{
-        font-size: 2.5rem;
-        font-weight: 400;
-        text-align: center
-    }
-
-    .item_img{
-        
-        margin: 1rem auto auto auto;
-    }
-
-    .item_desc{
-        font-size: 1.8rem;
-        
-    }
-
-    .item_cod{
-        font-size: 1.6rem;
-      
-    }
-    .item_color{
-        font-size: 1.6rem;
-    }
-       
-  }
-
-@media screen and (max-width: 525px) {
-
-    .itemList{
-        max-width: 90%;
-        grid-template-columns: 1fr;
-    }
-
-    .item_tittle{
-        font-size: 2.5rem;
-        font-weight: 400;
-        text-align: center
-    }
-
-    .item_img{
-        width: 70vw;
-        margin: 1rem auto auto auto;
-    }
-
-    .item_desc{
-        font-size: 1.8rem;
-        
-    }
-
-    .item_cod{
-        font-size: 1.6rem;
-      
-    }
-    .item_color{
-        font-size: 1.6rem;
-    }
-       
-  }
-
- 

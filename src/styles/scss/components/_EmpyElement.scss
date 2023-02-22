@@ -1,0 +1,27 @@
+.empyElement__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-column: 1/5;
+    min-height: 90vh;
+
+    &__msg{
+        font-size: 5rem;
+        font-weight: 200;
+        color: $mainColor;
+        
+    }
+
+    &__link{
+        font-size: 3rem;
+        font-weight: 200;
+        color: $mainColor;
+
+        &:hover{
+            font-size: 3.5rem;
+            transition: all 0.3s ease;
+        }
+       
+    }
+}

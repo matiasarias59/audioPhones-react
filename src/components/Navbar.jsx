@@ -22,19 +22,20 @@ export default function Navbar() {
 
   const HandleMenuName = e => {
     e.stopPropagation();
-    console.log(e)
+    //console.log(e)
     e.target.nextSibling.classList.toggle("active")
   }
 
+  /**
+   * Funcion. Remueve la clase "active" del elemento.
+   * @param {event} e 
+   */
   const HandleMenuList = e => {
     //e.stopPropagation();
     console.log(e)
     e.target.classList.remove("active")
   }
 
-  const onFocusTest = e => {
-    console.log(e);
-  }
 
   return (
 

@@ -4,7 +4,8 @@ import Loading from './Loading'
 //import './FilterListContainer.css'
 import { AppContext } from '../context/AppContext';
 import { useParams } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function FilterListContainer({props}) {
   const { getCategoryList, getSubCategoryList, getBrandList } = useContext(AppContext);
@@ -27,6 +28,14 @@ export default function FilterListContainer({props}) {
     setSubCategoryList(getSubCategoryList(props))
   }, [props])
 
+  const [menuIsActive, setMenuIsActive] = useState(false);
+
+  const handleOnClick = () => {
+    console.log("click");
+    const isActive = !menuIsActive;
+    setMenuIsActive(isActive);
+    console.log(menuIsActive)
+  }
 
   if (!categoryList) {
     return (
@@ -34,22 +43,31 @@ export default function FilterListContainer({props}) {
     )
   }
 
+
   return (
 
     <div className='filterListContainer'>
-      <h3 className='filterListContainer__title'>Refina tu busqueda:</h3>
-      <div>
-        {!idCategory && <><h3 className='filterListContainer__titleList'>Categorias:</h3>
+      <div className='filterListContainer__title'>
+      <h3>Refina tu busqueda</h3>
+      <div className={`filterListContainer__title__icon${menuIsActive?"--active":""}`} onClick={handleOnClick}>
+      <FontAwesomeIcon icon={faCaretRight} color="red" size='2x'/>
+      </div>
+      <div className={`filterListContainer__title__closeIcon${menuIsActive?"--active":""}`} onClick={handleOnClick}>
+      <FontAwesomeIcon icon={faXmark} color="red" size='2x'/>
+      </div>
+      </div>
+      <div className={`filterListContainer__group${menuIsActive?"--active":""}`}>
+        {!idCategory && <><h3 className={`filterListContainer__titleList${menuIsActive?"--active":""}`}>Categorias:</h3>
           <FilterList props={{ list: categoryList, filterName: "familia" }} /></>
         }
       </div>
-      <div>
-        {!idBrand && <><h3 className='filterListContainer__titleList'>Marcas:</h3>
+      <div className={`filterListContainer__group${menuIsActive?"--active":""}`}>
+        {!idBrand && <><h3 className={`filterListContainer__titleList${menuIsActive?"--active":""}`}>Marcas:</h3>
           <FilterList props={{ list: brandList, filterName: "marca" }} /></>
         }
       </div>
-      <div>
-        <h3 className='filterListContainer__titleList'>SubCategorias:</h3>
+      <div className={`filterListContainer__group${menuIsActive?"--active":""}`}>
+        <h3 className={`filterListContainer__titleList${menuIsActive?"--active":""}`}>SubCategorias:</h3>
         <FilterList props={{ list: subCategoryList, filterName: "subFamilia" }} />
       </div>
     </div>

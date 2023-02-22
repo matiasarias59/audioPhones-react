@@ -38,7 +38,7 @@ export default function ItemListContainer() {
       }
       return (l === match);
     })
-    console.log(filterCatalogue)
+    //console.log(filterCatalogue)
     return filterCatalogue;
   }
 
@@ -70,7 +70,7 @@ export default function ItemListContainer() {
     for (const [k, v] of filters) {
       searchFilters[k] ? searchFilters[k] = [...(searchFilters[k]), v] : searchFilters[k] = [v];
     }
-    searchUrl && console.log(searchFilters);
+    //searchUrl && console.log(searchFilters);
 
     //(!idCategory && !idBrand) && setFilterCatalogue(generateFilterCatalogue(catalogue, searchFilters));
 

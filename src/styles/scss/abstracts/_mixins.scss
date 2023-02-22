@@ -1,0 +1,9 @@
+@mixin media-down($breakpoint){
+    @if map-has-key($breakpoints, $breakpoint){
+        @media screen and (max-width: map-get($breakpoints, $breakpoint)){
+            @content;
+        }
+    }@else{
+        @warn "El valor '#{ $breakpoint }' no ha sido declarado como breakpoint";
+    }
+}
