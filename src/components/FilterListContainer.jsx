@@ -30,12 +30,7 @@ export default function FilterListContainer({props}) {
 
   const [menuIsActive, setMenuIsActive] = useState(false);
 
-  const handleOnClick = () => {
-    console.log("click");
-    const isActive = !menuIsActive;
-    setMenuIsActive(isActive);
-    console.log(menuIsActive)
-  }
+  const handleOnClick = () => setMenuIsActive(!menuIsActive);    
 
   if (!categoryList) {
     return (

@@ -1,0 +1,14 @@
+.logo_container{
+    width: 3rem;
+
+    @include media-down(md) {
+        width: 5rem;
+            
+    
+        }
+    
+        @include media-down(sm) {
+            width: 5rem;
+    
+        }
+}
