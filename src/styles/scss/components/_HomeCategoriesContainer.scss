@@ -1,0 +1,9 @@
+.home__categories__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 50rem;
+    border: 0.1rem solid rgb(238, 238, 238);
+    box-shadow: 0.1rem 0.1rem 1rem rgb(162, 162, 162);
+    margin: 5rem auto;
+}

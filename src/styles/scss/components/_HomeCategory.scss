@@ -1,0 +1,23 @@
+.home__category {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 10rem;
+  padding: 1rem;
+  margin: 2rem;
+  border: 0.2rem solid $mainColor;
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0.1rem 0.1rem 0.5rem rgb(162, 162, 162);
+    transition: transform 0.5s ease;
+  }
+
+  &__name {
+    color: $mainColor;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

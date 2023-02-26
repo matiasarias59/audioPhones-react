@@ -1,13 +1,16 @@
-import React from 'react'
-import NewInProducts from './NewInProducts'
-import OfferCarousel from './OfferCarousel'
+import React from "react";
+import HomeCategoriesContainer from "./HomeCategoriesContainer";
+/* import NewInProducts from "./NewInProducts";
+import OfferCarousel from "./OfferCarousel"; */
 
 export default function Home() {
   return (
-    <>
-    <div>Home - Bienvenidos</div>
-    <OfferCarousel/>
-    <NewInProducts/>
-    </>
-  )
+    <div className="home__container">
+      <h2>Bienvenidos</h2>
+      <HomeCategoriesContainer/>
+
+      {/* <OfferCarousel/>
+    <NewInProducts/> */}
+    </div>
+  );
 }
