@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Logo from "./Logo";
 import { AppContext } from "../context/AppContext";
 import { Link } from "react-router-dom";
-//import './Navbar.css'
 import SearchBar from "./SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,27 +15,12 @@ export default function Navbar() {
 
   const [categoryList, setCategoryList] = useState([]);
   const [brandList, setBrandList] = useState([]);
-  const [menuList, setMenuList] = useState(false);
 
   useEffect(() => {
-    setMenuList(false);
     setCategoryList(getCategoryList(catalogue));
     setBrandList(getBrandList(catalogue));
   }, [catalogue]);
 
-  /*   const HandleMenuName = e => {
-      e.stopPropagation();
-      console.log(e)
-      e.target.nextSibling.classList.toggle("active")
-    }
-  
-  
-    const HandleMenuList = e => {
-      e.stopPropagation();
-      console.log(e)
-      e.target.classList.remove("active")
-    }
-   */
   /* *********************************************** */
 
   const [menuIsActive, setMenuIsActive] = useState(false);
@@ -55,7 +39,7 @@ export default function Navbar() {
     setCategoryMenuIsActive(false);
   };
 
-  /* ********************************************************* */
+  
   return (
     <nav className="navbar">
       <div className={`navbar__icon`} onClick={handleOnClick}>

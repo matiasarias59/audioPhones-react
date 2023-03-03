@@ -1,5 +1,4 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
-//import './App.css';
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import ItemListContainer from "./components/ItemListContainer";
@@ -10,7 +9,6 @@ function App() {
   return (
     <AppProvider>
       <HashRouter>
-        {/* <BrowserRouter> */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +21,6 @@ function App() {
           <Route path="/search" element={<ItemListContainer />} />
         </Routes>
         <Footer />
-        {/* </BrowserRouter> */}
       </HashRouter>
     </AppProvider>
   );

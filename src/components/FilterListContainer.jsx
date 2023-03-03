@@ -1,34 +1,27 @@
 import React, { useEffect, useContext, useState } from "react";
 import FilterList from "./FilterList";
 import Loading from "./Loading";
-//import './FilterListContainer.css'
 import { AppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function FilterListContainer({ props }) {
-  const { getCategoryList, getSubCategoryList, getBrandList } =
-    useContext(AppContext);
-  //const { newCatalogue } = props
+  const { getCategoryList, getSubCategoryList, getBrandList } = useContext(AppContext);
   const [categoryList, setCategoryList] = useState([]);
   const [brandList, setBrandList] = useState([]);
   const [subCategoryList, setSubCategoryList] = useState([]);
 
   const { idCategory } = useParams("idCategory");
   const { idBrand } = useParams("idBrand");
-
-  //const locationPath = useLocation().pathname
+  const [menuIsActive, setMenuIsActive] = useState(false);
+  const handleOnClick = () => setMenuIsActive(!menuIsActive);
 
   useEffect(() => {
     setCategoryList(getCategoryList(props));
     setBrandList(getBrandList(props));
     setSubCategoryList(getSubCategoryList(props));
   }, [props]);
-
-  const [menuIsActive, setMenuIsActive] = useState(false);
-
-  const handleOnClick = () => setMenuIsActive(!menuIsActive);
 
   if (!categoryList) {
     return <Loading />;

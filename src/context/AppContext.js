@@ -38,7 +38,6 @@ export const AppProvider = (props) => {
     const data = await res.json()
     const fullCatalogue = generateCatalogue(data.values);
     setCatalogue(fullCatalogue)
-    //console.log("funcion getCatalogue")
   }
 
   const getBrandList = (arrCatalogue) => {
@@ -73,7 +72,6 @@ useEffect(() => {
   
 }, [])
 
-//console.log(catalogue)
 
 
   return (
