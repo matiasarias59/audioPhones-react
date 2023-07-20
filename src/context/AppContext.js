@@ -46,6 +46,7 @@ export const AppProvider = (props) => {
       const cat = el.marca;
       !brandList.includes(cat) && brandList.push(cat);
     })
+    brandList.sort();
     return brandList
   }
 
@@ -55,6 +56,7 @@ export const AppProvider = (props) => {
       const cat = el.familia;
       !categoryList.includes(cat) && categoryList.push(cat);
     })
+    categoryList.sort();
     return categoryList
   }
 
@@ -64,6 +66,7 @@ export const AppProvider = (props) => {
       const cat = el.subFamilia;
       !subCategoryList.includes(cat) && subCategoryList.push(cat);
     })
+    subCategoryList.sort();
     return subCategoryList
   }
 
