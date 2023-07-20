@@ -11,7 +11,7 @@ export default function SearchBar() {
   const handleSearchBar = (e) => {
     e.preventDefault();
     console.log(e);
-    const searchValue = e.target[0].value;
+    const searchValue = e.target[0].value.toLowerCase();
 
     navigate(`/search/?descripcion=${searchValue}`);
     e.target.reset();

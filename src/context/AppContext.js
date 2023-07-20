@@ -33,7 +33,6 @@ export const AppProvider = (props) => {
 
  
   const getCatalogue = async () => {
-    //const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/data!A1:R?key=AIzaSyCNjdPDGXC6zms7YbYknyLuSIbqbJKXgKA";
     const url = "https://sheets.googleapis.com/v4/spreadsheets/1QI-vIZXTXYBrEQmXF2_VCNgriXktwFsVH2Qi-VMqEZ8/values/data!A1:R?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
     const res = await fetch(url);
     const data = await res.json()
